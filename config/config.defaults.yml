@@ -20,14 +20,14 @@ default: &default_settings
 
   # Enable rack-attack for request throttling by setting this to true
   # Configuration is in `initializers/rack_attack.rb`
-  use_rack_attack: false
+  use_rack_attack: true
 
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
   # The session cookies will apply for the whole domain. If this is not needed you can leave this empty.
   # If you use domain aliases e.g. sharetribe.eu & sharetribe.cl, leave this empty.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
-  session_domain:
+  session_domain: consciousliving.market
 
   # Redirect to this URL if community can not be found. For example, if user is trying to access community
   # http://nonexisting.sharetribe.com and there's no community named "nonexisting", then the user is redirected
@@ -35,7 +35,7 @@ default: &default_settings
   #
   # Example value: http://mydomain.com
   #
-  community_not_found_redirect:
+  community_not_found_redirect: http://consciousliving.market
 
   # Login url. This can be a separate address for loggin in. For example
   # a subdomain with https. It's recommended to use https here, so passwords
@@ -189,6 +189,7 @@ default: &default_settings
   # smtp_email_password: "<YOUR_GMAIL_PASSWORD>"
   # smtp_email_domain: "localhost"
 
+
   # This will be the from field in the mails sent from Sharetribe
   sharetribe_mail_from_address: "your-team@example.com"
 
@@ -246,13 +247,13 @@ default: &default_settings
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
   # DEPRECATED: Session key is needed to upgrade from 5.6.0 to 5.7.0 and will be removed in future
-  session_key: _sharetribe_session
-  cookie_session_key: _st_session
+  session_key: _consciousliving_session
+  cookie_session_key: _cl_session
 
   # Global Service name
   # If you want to call this service with different name on this server, you can specify it here
   # This can also be set community specific in community.settings["service_name"]
-  global_service_name: Sharetribe
+  global_service_name: ConsciousLiving
 
   # Icon set
   # By default Sharetribe uses the Font Awesome Icon Pack
@@ -294,11 +295,11 @@ default: &default_settings
   original_image_height: 1600
 
   # Email addresses for sales & support. Will be shown to the administrator.
-  sales_email: hello@example.com
-  support_email: support@example.com
+  sales_email: hello@consciousliving.market
+  support_email: support@consciousliving.market
 
   # Knowledge base
-  knowledge_base_url: http://www.example.com/knowledgebase
+  knowledge_base_url: http://www.consciousliving.market/knowledgebase
   display_knowledge_base_articles: false
 
   # External plan service connection
@@ -403,7 +404,7 @@ default: &default_settings
 
   # Display mention of custom landing page in admin panel
   show_landing_page_admin: false
-  custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
+  custom_landing_page_marketing_site_url: "https://www.consciousliving.market/landingpage/"
 
   #######
   # Fonts
@@ -506,7 +507,7 @@ production: &production_settings
 
   eager_load: true
 
-  active_storage_service: amazon
+  active_storage_service: local
 
   log_level: INFO
   stripe_private_key_pattern: "\\Ask_live_.{24,200}\\z"

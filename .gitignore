@@ -76,3 +76,6 @@ storage/
 
 # Deployment
 .toolbelt/
+
+#Puma
+shared/
