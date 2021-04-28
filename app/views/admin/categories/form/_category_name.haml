@@ -6,3 +6,7 @@
         = label_tag "category[translation_attributes][#{locale_value}][name]", locale_name + ": ", :class => "new-category-name-locale-label"
     .col-8
       = text_field_tag "category[translation_attributes][#{locale_value}][name]", @category.display_name(locale_value), :class => "required"
+= form.label :category_commission, t(".category_commission")
+.row
+  .col-8
+    = text_field_tag "category[category_commission]", @category.category_commission, :class => "required"

@@ -13,6 +13,10 @@
             = locale_name
         .multiple-languages-input
           = text_field_tag "category[translation_attributes][#{locale_value}][name]", category.display_name(locale_value), class: 'required form-control'
+.form-group
+  = form.label :category_commission, t(".category_commission")
+  .multiple-languages-input
+    = text_field_tag "category[category_commission]", category.category_commission, class: 'required form-control'
 
 - if category.new_record?
   .form-group{style: 'margin-left:0;'}

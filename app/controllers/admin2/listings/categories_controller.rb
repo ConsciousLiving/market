@@ -94,7 +94,7 @@ module Admin2::Listings
 
     def category_params
       params.require(:category)
-        .slice(:parent_id, :translation_attributes, :sort_priority, :url, :basename)
+        .slice(:parent_id, :translation_attributes, :sort_priority, :url, :basename, :category_commission)
         .permit!
     end
 

@@ -512,6 +512,7 @@ en:
       save_add_category_popup: "Add the category"
       edit_category: "Edit the category \"%{category}\""
       category_name: "Category name"
+      category_commission: "Commission(%)"
       category_parent: "Parent category"
       no_parent: "No parent"
       order_types: "Order types"
