@@ -27,6 +27,10 @@
   display: none;
 }
 
+.contact_error.hidden {
+  display: none !important;
+}
+
 .clearfix {
   @include clearfix;
 }

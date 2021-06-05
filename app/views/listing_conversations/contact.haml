@@ -10,8 +10,9 @@
 
     = form.label :content, t("conversations.new.message")
     = form.text_area :content, :class => "text_area"
+    %label.error.hidden.contact_error Invalid message
     = form.hidden_field :sender_id, :value => @current_user.id
 
     = form.hidden_field :listing_id, :value => @listing.id
     = form.hidden_field :community_id, :value => @current_community.id
-    = form.button t("conversations.new.send_message"), :class => "send_button"
+    = form.button t("conversations.new.send_message"), :class => "send_button", disabled: true

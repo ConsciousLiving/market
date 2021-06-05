@@ -264,6 +264,41 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
+$('#new_listing_conversation').find('textarea').keyup(function(e){
+  var textArea = $(this)
+  var emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  var urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+  var digitCountRegex = /[1-9]/g;
+  var phone_pattern = /([0-9]{10})|(\([0-9]{3}\)\s+[0-9]{3}\-[0-9]{4})/;
+  var descriptionCheck = textArea.val();
+  var descriptionSplitData = descriptionCheck.split(/\s+/);
+  if (descriptionCheck != "") {
+    $.each(descriptionSplitData, function( index, value ) {
+      digitCount = value.match(digitCountRegex) || [];
+      chechHttps = value.includes('https')
+      chechHttp = value.includes('http')
+      chechHttpwww = value.includes('http://www')
+      chechHttpswww = value.includes('https://www')
+      chechWww = value.includes('www')
+      emailCheck = value.includes('@gmail') || value.includes('@hotmail') || value.includes('@ymail')
+      if (emailRegex.test(value) || urlRegex.test(value) || chechHttps || chechHttp || chechHttpwww 
+        || chechHttpswww || chechWww || emailCheck || phone_pattern.test(value)) {
+        textArea.next('.contact_error').removeClass('hidden');
+        $('#new_listing_conversation').find('button').attr('disabled', true)
+        e.preventDefault()
+        return false;
+      }
+      else {
+        textArea.next('.contact_error').addClass('hidden');
+        $('#new_listing_conversation').find('button').attr('disabled', false)
+      }
+    });
+  }
+  else {
+    textArea.next('.contact_error').addClass('hidden');
+  }
+})
+
 function initialize_send_message_form(locale) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
