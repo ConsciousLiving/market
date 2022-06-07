@@ -272,7 +272,7 @@ GEM
     intercom (3.5.14)
       json (>= 1.8)
     jaro_winkler (1.5.2)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     joiner (0.4.2)
       activerecord (>= 5.2.beta1)
     jquery-rails (4.3.1)
